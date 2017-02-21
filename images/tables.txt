@@ -1,0 +1,9 @@
+CREATE SCHEMA `salones` DEFAULT CHARACTER SET utf8 ;
+
+CREATE TABLE `salones`.`salon` (
+  `idsalon` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NULL,
+  `href` VARCHAR(45) NULL,
+  `estado` INT NULL,
+  `fecha` DATE NULL,
+  PRIMARY KEY (`idsalon`));
