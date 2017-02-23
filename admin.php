@@ -5,17 +5,20 @@ require_once "conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 
+$fecha = $_GET['fecha'];
 
-$query = mysqli_query($result,'select * from salon');
+// echo $fecha; die();
+
+$query = mysqli_query($result,"select * from salon where fecha = '$fecha'");
 
 $article = '';
 $min = 1;
-$max = 8;
+$max = 7;
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$article .=	"
-				<article class='style" . rand(1, 8) . "'>
+				<article class='style" . rand($min, $max) . "'>
 					<span class='image'>
 						<img src='" . $row['href'] . "' alt=' />
 					</span>
