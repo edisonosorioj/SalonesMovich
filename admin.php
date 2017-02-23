@@ -8,6 +8,26 @@ $result = $conex->conex();
 
 $query = mysqli_query($result,'select * from salon');
 
+$article = '';
+$min = 1;
+$max = 8;
+
+ while ($row = $query->fetch_array(MYSQLI_BOTH)){
+
+ 	$article .=	"
+				<article class='style" . rand(1, 8) . "'>
+					<span class='image'>
+						<img src='" . $row['href'] . "' alt=' />
+					</span>
+					<a href='" . $row['redireccion'] . "'>
+						<h2>" . $row['nombre'] . "</h2>
+						<div class='content'>
+							<p id='estado'>" . $row['detalles'] . "</p>
+						</div>
+					</a>
+				</article>";
+
+ }
 
 $html = "<!DOCTYPE HTML>
 	<html>
@@ -59,107 +79,10 @@ $html = "<!DOCTYPE HTML>
 								<header>
 									<h1>Disponibilidad de los salones en el Movich Llanogrande</h1>
 									<p>El Hotel Movich Las Lomas cuenta con una excelente infraestructura de 10 salones para conferencias y convenciones con capacidades de 5 y 230 personas. Cuenta también con una zona de piscina para cocteles y reuniones, amplios jardines y se cuenta con todas las ayudas audiovisuales.</p>
-									<p><form>Disponibilidad: <input type='date' name='fecha'><input type='submit' value='Send' id='buscar' class='button small' /></form></p>
+									<p><form method='post' action='admin.php'>Disponibilidad: <input type='date' name='fecha'><input type='submit' value='Buscar' id='buscar' class='button small' /></form></p>
 								</header>
 								<section class='tiles'>
-									<article class='style1'>
-										<span class='image'>
-											<img src='images/salon01.jpg' alt=' />
-										</span>
-										<a href='generic.html'>
-											<h2>Salón 01</h2>
-											<div class='content'>
-												<p id='estado'>Salón dispuesto para 12 personas con los implementos necesarios para una reunión.</p>
-											</div>
-										</a>
-									</article>
-									<article class='style2'>
-										<span class='image'>
-											<img src='images/salon02.jpg' alt=' />
-										</span>
-										<a href='generic.html'>
-											<h2>Salón 02</h2>
-											<div class='content'>
-												<p id='estado'>Salón dispuesto para 18 personas con los implementos necesarios para una reunión.</p>
-											</div>
-										</a>
-									</article>
-									<article class='style3'>
-										<span class='image'>
-											<img src='images/salon03.jpg' alt=' />
-										</span>
-										<a href='generic.html'>
-											<h2>Salón 03</h2>
-											<div class='content'>
-												<p id='estado'>Salón dispuesto para 30 personas con los implementos necesarios para una reunión.</p>
-											</div>
-										</a>
-									</article>
-									<article class='style4'>
-										<span class='image'>
-											<img src='images/salon04.jpg' alt=' />
-										</span>
-										<a href='generic.html'>
-											<h2>Salón 04</h2>
-											<div class='content'>
-												<p id='estado'>Salón dispuesto para 12 personas con los implementos necesarios para una reunión.</p>
-											</div>
-										</a>
-									</article>
-									<article class='style5'>
-										<span class='image'>
-											<img src='images/salon05.jpg' alt=' />
-										</span>
-										<a href='generic.html'>
-											<h2>Salón 05</h2>
-											<div class='content'>
-												<p id='estado'>Salón dispuesto para 15 personas con los implementos necesarios para una reunión.</p>
-											</div>
-										</a>
-									</article>
-									<article class='style6'>
-										<span class='image'>
-											<img src='images/salon06.jpg' alt=' />
-										</span>
-										<a href='generic.html'>
-											<h2>Salón 06</h2>
-											<div class='content'>
-												<p id='estado'>Salón dispuesto para 30 personas con los implementos necesarios para una reunión.</p>
-											</div>
-										</a>
-									</article>
-									<article class='style2'>
-										<span class='image'>
-											<img src='images/salon07.jpg' alt=' />
-										</span>
-										<a href='generic.html'>
-											<h2>Salón 07</h2>
-											<div class='content'>
-												<p id='estado'>Salón dispuesto para 12 personas con los implementos necesarios para una reunión.</p>
-											</div>
-										</a>
-									</article>
-									<article class='style3'>
-										<span class='image'>
-											<img src='images/salon08.jpg' alt=' />
-										</span>
-										<a href='generic.html'>
-											<h2>Salón 08</h2>
-											<div class='content'>
-												<p id='estado'>Salón dispuesto para 15 personas con los implementos necesarios para una reunión.</p>
-											</div>
-										</a>
-									</article>
-									<article class='style1'>
-										<span class='image'>
-											<img src='images/salon08.jpg' alt=' />
-										</span>
-										<a href='generic.html'>
-											<h2>Salón 09</h2>
-											<div class='content'>
-												<p id='estado'>Salón dispuesto para 30 personas con los implementos necesarios para una reunión.</p>
-											</div>
-										</a>
+									" . $article . "
 								</section>
 							</div>
 						</div>
