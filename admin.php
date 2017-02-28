@@ -7,13 +7,18 @@ $result = $conex->conex();
 
 $fecha = $_GET['fecha'];
 
-// echo $fecha; die();
+if (isset($fecha) {
+		$fecha = $_GET['fecha'];
+	} else {
+		$fecha = date('Y-m-d');
+	};
+
 
 $query = mysqli_query($result,"select * from salon where fecha = '$fecha'");
 
 $article = '';
 $min = 1;
-$max = 7;
+$max = 6;
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
@@ -31,12 +36,11 @@ $max = 7;
 				</article>";
 
  }
-
 $html = "<!DOCTYPE HTML>
 	<html>
 		<head>
 			<title>Movich Salones</title>
-			<meta charset='utf-8' />
+			<meta http-equiv='Content-type' content='text/html; charset=utf-8' />
 			<meta name='viewport' content='width=device-width, initial-scale=1' />
 			<link rel='stylesheet' href='assets/css/main.css' />
 		</head>
@@ -82,7 +86,7 @@ $html = "<!DOCTYPE HTML>
 								<header>
 									<h1>Disponibilidad de los salones en el Movich Llanogrande</h1>
 									<p>El Hotel Movich Las Lomas cuenta con una excelente infraestructura de 10 salones para conferencias y convenciones con capacidades de 5 y 230 personas. Cuenta también con una zona de piscina para cocteles y reuniones, amplios jardines y se cuenta con todas las ayudas audiovisuales.</p>
-									<p><form method='post' action='admin.php'>Disponibilidad: <input type='date' name='fecha'><input type='submit' value='Buscar' id='buscar' class='button small' /></form></p>
+									<p><form method='get' action='admin.php'>Disponibilidad: <input type='date' name='fecha'><input type='submit' value='Buscar' id='buscar' class='button small' /></form></p>
 								</header>
 								<section class='tiles'>
 									" . $article . "
