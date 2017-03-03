@@ -7,11 +7,11 @@ $result = $conex->conex();
 
 $fecha = $_GET['fecha'];
 
-if (isset($fecha) {
-		$fecha = $_GET['fecha'];
-	} else {
-		$fecha = date('Y-m-d');
-	};
+// if (isset($fecha) {
+// 		$fecha = $_GET['fecha'];
+// 	} else {
+// 		$fecha = date('Y-m-d');
+// 	};
 
 
 $query = mysqli_query($result,"select * from salon where fecha = '$fecha'");
