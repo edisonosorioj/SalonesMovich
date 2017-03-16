@@ -14,13 +14,21 @@ $fecha = $_GET['fecha'];
 // 	};
 
 
-$query = mysqli_query($result,"select * from salon where fecha = '$fecha'");
+$query = mysqli_query($result,"select * from salones");
+$res1 = $query->fetch_array(MYSQLI_BOTH);
+
+$query2 = mysqli_query($result,"select * from salon where fecha = '$fecha'");
+$res2 = $query2->fetch_array(MYSQLI_BOTH);
+
+$query3 = array_diff($res1,$res2);
 
 $article = '';
 $min = 1;
 $max = 6;
 
- while ($row = $query->fetch_array(MYSQLI_BOTH)){
+ while ($row = $query3){
+
+	print_r($row);
 
  	$article .=	"
 				<article class='style" . rand($min, $max) . "'>
@@ -36,6 +44,7 @@ $max = 6;
 				</article>";
 
  }
+ die();
 $html = "<!DOCTYPE HTML>
 	<html>
 		<head>
