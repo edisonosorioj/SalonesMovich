@@ -8,31 +8,53 @@ $result = $conex->conex();
 $fecha = $_GET['fecha'];
 
 
-$query = mysqli_query($result,"select * from salones");
+$query = mysqli_query($result,"select nombre from salones");
+// $res1 = $query->fetch_array(MYSQLI_BOTH);
 // $res1 = $query->fetch_array(MYSQLI_BOTH);
 
-$query2 = mysqli_query($result,"select * from salon where fecha = '$fecha'");
+// while ($row = mysqli_fetch_array($query)) {
+	// echo $row['nombre'] . '<br />';
+	// print_r($row['nombre']);
+// }
+// $query2 = mysqli_query($result,"select * from salon where fecha = $fecha");
+$query2 = mysqli_query($result,"select * from salon where fecha = '2017-02-12'");
+// while ($row = mysqli_fetch_array($query2)) {
+// echo $row['nombre'] . '<br />';
+// 	print_r($row['nombre']);
+// }
+
+$row = mysqli_fetch_array($query);
+$row2 = mysqli_fetch_array($query2);
+
+is_array($row2) ? $row2 : $row2 = array();
+
+$result=array_diff($row, $row2);
+
+// print_r($result);
+
+// die();
+
+// $query2 = mysqli_query($result,"select * from salon where fecha = '$fecha'");
 // $res2 = $query2->fetch_array(MYSQLI_BOTH);
 
-$query3 = array_diff_assoc($query->fetch_array(MYSQLI_BOTH),$query2->fetch_array(MYSQLI_BOTH));
-
-print_r($query);die();
+// $query3 = array_diff_assoc($query->fetch_array(MYSQLI_BOTH),$query2->fetch_array(MYSQLI_BOTH));
 
 $article = '';
 $min = 1;
 $max = 6;
 
- while ($row = $query3){
+ // while ($row3 = $result->fetch_array(MYSQLI_BOTH)){
+ while ($row3 = mysqli_fetch_array($result)){
 
  	$article .=	"
 				<article class='style" . rand($min, $max) . "'>
 					<span class='image'>
-						<img src='" . $row['href'] . "' alt=' />
+						<img src='" . $row3['href'] . "' alt=' />
 					</span>
-					<a href='" . $row['redireccion'] . "'>
-						<h2>" . $row['nombre'] . "</h2>
+					<a href='" . $row3['redireccion'] . "'>
+						<h2>" . $row3['nombre'] . "</h2>
 						<div class='content'>
-							<p id='estado'>" . $row['detalles'] . "</p>
+							<p id='estado'>" . $row3['detalles'] . "</p>
 						</div>
 					</a>
 				</article>";
