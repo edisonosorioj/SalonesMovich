@@ -7,28 +7,22 @@ $result = $conex->conex();
 
 $fecha = $_GET['fecha'];
 
-// if (isset($fecha) {
-// 		$fecha = $_GET['fecha'];
-// 	} else {
-// 		$fecha = date('Y-m-d');
-// 	};
-
 
 $query = mysqli_query($result,"select * from salones");
-$res1 = $query->fetch_array(MYSQLI_BOTH);
+// $res1 = $query->fetch_array(MYSQLI_BOTH);
 
 $query2 = mysqli_query($result,"select * from salon where fecha = '$fecha'");
-$res2 = $query2->fetch_array(MYSQLI_BOTH);
+// $res2 = $query2->fetch_array(MYSQLI_BOTH);
 
-$query3 = array_diff($res1,$res2);
+$query3 = array_diff_assoc($query->fetch_array(MYSQLI_BOTH),$query2->fetch_array(MYSQLI_BOTH));
+
+print_r($query);die();
 
 $article = '';
 $min = 1;
 $max = 6;
 
  while ($row = $query3){
-
-	print_r($row);
 
  	$article .=	"
 				<article class='style" . rand($min, $max) . "'>
@@ -44,7 +38,7 @@ $max = 6;
 				</article>";
 
  }
- die();
+
 $html = "<!DOCTYPE HTML>
 	<html>
 		<head>
