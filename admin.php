@@ -8,7 +8,7 @@ $result = $conex->conex();
 $fecha = $_GET['fecha'];
 
 
-$query = mysqli_query($result,"select nombre from salones");
+$query = mysqli_query($result,"select * from salones");
 // $res1 = $query->fetch_array(MYSQLI_BOTH);
 // $res1 = $query->fetch_array(MYSQLI_BOTH);
 
@@ -17,7 +17,7 @@ $query = mysqli_query($result,"select nombre from salones");
 	// print_r($row['nombre']);
 // }
 // $query2 = mysqli_query($result,"select * from salon where fecha = $fecha");
-$query2 = mysqli_query($result,"select * from salon where fecha = '2017-02-12'");
+$query2 = mysqli_query($result,"select * from salon where fecha = '2017-03-13'");
 // while ($row = mysqli_fetch_array($query2)) {
 // echo $row['nombre'] . '<br />';
 // 	print_r($row['nombre']);
@@ -30,10 +30,6 @@ is_array($row2) ? $row2 : $row2 = array();
 
 $result=array_diff($row, $row2);
 
-// print_r($result);
-
-// die();
-
 // $query2 = mysqli_query($result,"select * from salon where fecha = '$fecha'");
 // $res2 = $query2->fetch_array(MYSQLI_BOTH);
 
@@ -43,8 +39,18 @@ $article = '';
 $min = 1;
 $max = 6;
 
- // while ($row3 = $result->fetch_array(MYSQLI_BOTH)){
- while ($row3 = mysqli_fetch_array($result)){
+$array = $result;
+foreach ($array as &$valor) {
+	print_r $valor['nombre'];
+}
+
+die();
+
+ while ($row3 = $query->fetch_array(MYSQLI_BOTH)){
+ // while ($row3 = mysqli_fetch_array($result, MYSQLI_BOTH)){
+
+ 	printf($row3['nombre']. '<br />');
+ 	print_r($result['nombre'] . '<br />');
 
  	$article .=	"
 				<article class='style" . rand($min, $max) . "'>
@@ -60,6 +66,8 @@ $max = 6;
 				</article>";
 
  }
+
+ die();
 
 $html = "<!DOCTYPE HTML>
 	<html>
