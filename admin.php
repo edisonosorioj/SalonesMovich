@@ -7,44 +7,50 @@ $result = $conex->conex();
 
 $fecha = $_GET['fecha'];
 
+$array1 = array();
 
 $query = mysqli_query($result,"select * from salones");
 // $res1 = $query->fetch_array(MYSQLI_BOTH);
 // $res1 = $query->fetch_array(MYSQLI_BOTH);
+	// print_r(mysqli_fetch_assoc($query));
 
-// while ($row = mysqli_fetch_array($query)) {
-	// echo $row['nombre'] . '<br />';
-	// print_r($row['nombre']);
-// }
+$ristra = array();                                        
+while( $row = mysqli_fetch_assoc($query) ){
+
+    $ristra['nombre'][] = $row["nombre"];
+    $ristra['href'][] = $row["href"];
+    $ristra['redireccion'][] = $row["redireccion"];
+    $ristra['detalles'][] = $row["detalles"];
+}
+// $ristra = preg_replace("/, $/", "", $ristra);
+
+print_r($ristra);
 // $query2 = mysqli_query($result,"select * from salon where fecha = $fecha");
-$query2 = mysqli_query($result,"select * from salon where fecha = '2017-03-13'");
-// while ($row = mysqli_fetch_array($query2)) {
-// echo $row['nombre'] . '<br />';
-// 	print_r($row['nombre']);
-// }
+$query2 = mysqli_query($result,"select * from salon where fecha = '2017-03-10'");
+	
+$ristra2 = array();                                        
+while( $row2 = mysqli_fetch_assoc($query2) ){
 
-$row = mysqli_fetch_array($query);
-$row2 = mysqli_fetch_array($query2);
+    $ristra2['nombre'][] = $row2["nombre"];
+    $ristra2['href'][] = $row2["href"];
+    $ristra2['redireccion'][] = $row2["redireccion"];
+    $ristra2['detalles'][] = $row2["detalles"];
+}
 
-is_array($row2) ? $row2 : $row2 = array();
+print_r($ristra2);
 
-$result=array_diff($row, $row2);
 
-// $query2 = mysqli_query($result,"select * from salon where fecha = '$fecha'");
-// $res2 = $query2->fetch_array(MYSQLI_BOTH);
+$array3 = array_diff_assoc($ristra['nombre'], $ristra2['nombre']);
 
-// $query3 = array_diff_assoc($query->fetch_array(MYSQLI_BOTH),$query2->fetch_array(MYSQLI_BOTH));
 
+print_r($array3);
+
+die();
 $article = '';
 $min = 1;
 $max = 6;
 
-$array = $result;
-foreach ($array as &$valor) {
-	print_r $valor['nombre'];
-}
 
-die();
 
  while ($row3 = $query->fetch_array(MYSQLI_BOTH)){
  // while ($row3 = mysqli_fetch_array($result, MYSQLI_BOTH)){
