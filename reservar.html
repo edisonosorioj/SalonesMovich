@@ -9,10 +9,7 @@
 		<title>Movich Salones</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
 	<body>
 		<!-- Wrapper -->
@@ -54,19 +51,24 @@
 					<div id="main">
 						<div class="inner">
 							<header>
-								<h1>Disponibilidad de los salones en el Movich Llanogrande</h1>
-								<p>El Hotel Movich Las Lomas cuenta con una excelente infraestructura de 10 salones para conferencias y convenciones con capacidades de 5 y 230 personas. Cuenta también con una zona de piscina para cocteles y reuniones, amplios jardines y se cuenta con todas las ayudas audiovisuales.</p>
-								<form method='get' action='admin.php'>Disponibilidad: <input type="date" name="fecha"><input type='submit' value='Buscar' id='buscar' class='button small' /></form>
+								<h1>Reservas</h1>
+								<p>Seleccione la fecha que desea reservar y haga clic en reservar.</p>
 							</header>
 							<section class="tiles">
 								<article class="style1">
 									<span class="image">
 										<img src="images/salon01.jpg" alt="" />
 									</span>
-									<a href="generic.html">
+									<a href="#">
 										<h2>Salón 01</h2>
 										<div class="content">
-											<p id='estado'>Salón dispuesto para 12 personas con los implementos necesarios para una reunión.</p>
+											<h3 id='estado'>Fecha a Reservar</h3>
+											<form method='post' action='add.php'>
+												<input type="hidden" name="salon" value="salon01">
+												<input type="hidden" name="disponible" value="images/disponibles/salon01.jpg">
+												<input type="date" name="fecha">
+												<input type='submit' value='Reservar' id='buscar' class='button special small' />
+											</form>
 										</div>
 									</a>
 								</article>
@@ -74,10 +76,16 @@
 									<span class="image">
 										<img src="images/salon02.jpg" alt="" />
 									</span>
-									<a href="generic.html">
+									<a href="#">
 										<h2>Salón 02</h2>
 										<div class="content">
-											<p id='estado'>Salón dispuesto para 18 personas con los implementos necesarios para una reunión.</p>
+											<h3 id='estado'>Fecha a Reservar</h3>
+											<form method='post' action='add.php'>
+												<input type="hidden" name="salon" value="salon02">
+												<input type="hidden" name="disponible" value="images/disponibles/salon02.jpg">
+												<input type="date" name="fecha">
+												<input type='submit' value='Reservar' id='buscar' class='button special small' />
+											</form>
 										</div>
 									</a>
 								</article>
@@ -85,10 +93,16 @@
 									<span class="image">
 										<img src="images/salon03.jpg" alt="" />
 									</span>
-									<a href="generic.html">
+									<a href="#">
 										<h2>Salón 03</h2>
 										<div class="content">
-											<p id='estado'>Salón dispuesto para 30 personas con los implementos necesarios para una reunión.</p>
+											<h3 id='estado'>Fecha a Reservar</h3>
+											<form method='post' action='add.php'>
+												<input type="hidden" name="salon" value="salon03">
+												<input type="hidden" name="disponible" value="images/disponibles/salon03.jpg">
+												<input type="date" name="fecha">
+												<input type='submit' value='Reservar' id='buscar' class='button special small' />
+											</form>
 										</div>
 									</a>
 								</article>
@@ -96,10 +110,16 @@
 									<span class="image">
 										<img src="images/salon04.jpg" alt="" />
 									</span>
-									<a href="generic.html">
+									<a href="#">
 										<h2>Salón 04</h2>
 										<div class="content">
-											<p id='estado'>Salón dispuesto para 12 personas con los implementos necesarios para una reunión.</p>
+											<h3 id='estado'>Fecha a Reservar</h3>
+											<form method='post' action='add.php'>
+												<input type="hidden" name="salon" value="salon04">
+												<input type="hidden" name="disponible" value="images/disponibles/salon04.jpg">
+												<input type="date" name="fecha">
+												<input type='submit' value='Reservar' id='buscar' class='button special small' />
+											</form>
 										</div>
 									</a>
 								</article>
@@ -107,10 +127,16 @@
 									<span class="image">
 										<img src="images/salon05.jpg" alt="" />
 									</span>
-									<a href="generic.html">
+									<a href="#">
 										<h2>Salón 05</h2>
 										<div class="content">
-											<p id='estado'>Salón dispuesto para 15 personas con los implementos necesarios para una reunión.</p>
+											<h3 id='estado'>Fecha a Reservar</h3>
+											<form method='post' action='add.php'>
+												<input type="hidden" name="salon" value="salon05">
+												<input type="hidden" name="disponible" value="images/disponibles/salon05.jpg">
+												<input type="date" name="fecha">
+												<input type='submit' value='Reservar' id='buscar' class='button special small' />
+											</form>
 										</div>
 									</a>
 								</article>
@@ -118,10 +144,16 @@
 									<span class="image">
 										<img src="images/salon06.jpg" alt="" />
 									</span>
-									<a href="generic.html">
+									<a href="#">
 										<h2>Salón 06</h2>
 										<div class="content">
-											<p id='estado'>Salón dispuesto para 30 personas con los implementos necesarios para una reunión.</p>
+											<h3 id='estado'>Fecha a Reservar</h3>
+											<form method='post' action='add.php'>
+												<input type="hidden" name="salon" value="salon06">
+												<input type="hidden" name="disponible" value="images/disponibles/salon06.jpg">
+												<input type="date" name="fecha">
+												<input type='submit' value='Reservar' id='buscar' class='button special small' />
+											</form>
 										</div>
 									</a>
 								</article>
@@ -129,10 +161,16 @@
 									<span class="image">
 										<img src="images/salon07.jpg" alt="" />
 									</span>
-									<a href="generic.html">
+									<a href="#">
 										<h2>Salón 07</h2>
 										<div class="content">
-											<p id='estado'>Salón dispuesto para 12 personas con los implementos necesarios para una reunión.</p>
+											<h3 id='estado'>Fecha a Reservar</h3>
+											<form method='post' action='add.php'>
+												<input type="hidden" name="salon" value="salon07">
+												<input type="hidden" name="disponible" value="images/disponibles/salon07.jpg">
+												<input type="date" name="fecha">
+												<input type='submit' value='Reservar' id='buscar' class='button special small' />
+											</form>
 										</div>
 									</a>
 								</article>
@@ -140,21 +178,16 @@
 									<span class="image">
 										<img src="images/salon08.jpg" alt="" />
 									</span>
-									<a href="generic.html">
+									<a href="#">
 										<h2>Salón 08</h2>
 										<div class="content">
-											<p id='estado'>Salón dispuesto para 15 personas con los implementos necesarios para una reunión.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style1">
-									<span class="image">
-										<img src="images/salon08.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Salón 09</h2>
-										<div class="content">
-											<p id='estado'>Salón dispuesto para 30 personas con los implementos necesarios para una reunión.</p>
+											<h3 id='estado'>Fecha a Reservar</h3>
+											<form method='post' action='add.php'>
+												<input type="hidden" name="salon" value="salon08">
+												<input type="hidden" name="disponible" value="images/disponibles/salon08.jpg">
+												<input type="date" name="fecha">
+												<input type='submit' value='Reservar' id='buscar' class='button special small' />
+											</form>
 										</div>
 									</a>
 								</article>
@@ -188,11 +221,6 @@
 									<li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
 									<li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
 									<li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
-									<!-- <li><a href="#" class="icon style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
-									<li><a href="#" class="icon style2 fa-github"><span class="label">GitHub</span></a></li>
-									<li><a href="#" class="icon style2 fa-500px"><span class="label">500px</span></a></li>
-									<li><a href="#" class="icon style2 fa-phone"><span class="label">Phone</span></a></li>
-									<li><a href="#" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li> -->
 								</ul>
 							</section>
 							<ul class="copyright">
@@ -207,8 +235,6 @@
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
-
 	</body>
 </html>

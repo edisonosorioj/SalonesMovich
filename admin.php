@@ -7,73 +7,47 @@ $result = $conex->conex();
 
 $fecha = $_GET['fecha'];
 
-$array1 = array();
-
 $query = mysqli_query($result,"select * from salones");
-// $res1 = $query->fetch_array(MYSQLI_BOTH);
-// $res1 = $query->fetch_array(MYSQLI_BOTH);
-	// print_r(mysqli_fetch_assoc($query));
 
 $ristra = array();                                        
 while( $row = mysqli_fetch_assoc($query) ){
-
-    $ristra['nombre'][] = $row["nombre"];
-    $ristra['href'][] = $row["href"];
-    $ristra['redireccion'][] = $row["redireccion"];
-    $ristra['detalles'][] = $row["detalles"];
+    $ristra[] = $row["disponible"];
 }
-// $ristra = preg_replace("/, $/", "", $ristra);
 
-print_r($ristra);
-// $query2 = mysqli_query($result,"select * from salon where fecha = $fecha");
-$query2 = mysqli_query($result,"select * from salon where fecha = '2017-03-10'");
+$query2 = mysqli_query($result,"select * from salon where fecha = '" . $fecha . "'");
+// $query2 = mysqli_query($result,"select * from salon where fecha = '2017-03-10'");
 	
 $ristra2 = array();                                        
 while( $row2 = mysqli_fetch_assoc($query2) ){
-
-    $ristra2['nombre'][] = $row2["nombre"];
-    $ristra2['href'][] = $row2["href"];
-    $ristra2['redireccion'][] = $row2["redireccion"];
-    $ristra2['detalles'][] = $row2["detalles"];
+    $ristra2[] = $row2["disponible"];
 }
 
-print_r($ristra2);
+$ristra2 = (is_array($ristra2)) ? $ristra2 : $ristra2 = array() ;
+
+$array = array_diff($ristra, $ristra2);
 
 
-$array3 = array_diff_assoc($ristra['nombre'], $ristra2['nombre']);
-
-
-print_r($array3);
-
-die();
 $article = '';
 $min = 1;
 $max = 6;
 
-
-
- while ($row3 = $query->fetch_array(MYSQLI_BOTH)){
- // while ($row3 = mysqli_fetch_array($result, MYSQLI_BOTH)){
-
- 	printf($row3['nombre']. '<br />');
- 	print_r($result['nombre'] . '<br />');
-
+ foreach ($array as &$valor){
  	$article .=	"
-				<article class='style" . rand($min, $max) . "'>
+				<article class='style8'>
 					<span class='image'>
-						<img src='" . $row3['href'] . "' alt=' />
+						<img src='" . $valor . "' alt=' />
 					</span>
-					<a href='" . $row3['redireccion'] . "'>
-						<h2>" . $row3['nombre'] . "</h2>
+					<a href='generic.html'>
+						<h2>Disponible</h2>
 						<div class='content'>
-							<p id='estado'>" . $row3['detalles'] . "</p>
+							<p id='estado'>Para la fecha seleccionada esta disponible el Salón</p>
 						</div>
 					</a>
-				</article>";
+					<a href='index.html'>Mas Información</a>
+				</article>
+				";
+			};
 
- }
-
- die();
 
 $html = "<!DOCTYPE HTML>
 	<html>
