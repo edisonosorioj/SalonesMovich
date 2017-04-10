@@ -7,10 +7,10 @@ class conection{
 	  $dbserver = "localhost";
 	  // $dbserver = "127.0.0.1";
 	  // $dbserver = "localhost";
-	  $dbuser = "root";
+	  $dbuser = "cocorrico";
 	  $password = "qwer1234";
 	  // $password = "";
-	  $dbname = "movich";
+	  $dbname = "cocorrico";
 	 
 	  $conex = new mysqli($dbserver, $dbuser, $password, $dbname);
 
@@ -23,3 +23,6 @@ class conection{
 	}
 
 }
+
+
+?>

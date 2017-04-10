@@ -14,7 +14,8 @@ $tr = '';
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" . $row['id'] 				. "</td>
 				<td>" . $row['nombre'] 				. "</td>
-				<td>" . $row['disponible'] 			. "</td>
+				<td>" . $row['usuario'] 			. "</td>
+				<td>" . $row['tel'] 			. "</td>
 				<td>" . $row['fecha'] 				. "</td>
 				<td><a href='delreserva.php?id=" . $row['id'] . "'>Eliminar</a>
 				</td>
@@ -73,8 +74,9 @@ $html = "<!DOCTYPE HTML>
 									<table class='table_result' id='table_result'>
 										<tr class='name_list'>
 											<td width='5%'>ID.</td>
-											<td width='20%'>Nombre</td>
-											<td width='10%'>Rutas</td>
+											<td width='10%'>Salon</td>
+											<td width='20%'>Nombre Usuario</td>
+											<td width='10%'>Telefono</td>
 											<td width='10%'>Fecha</td>
 											<td width='10%'>Acciones</td>
 										</tr>"
